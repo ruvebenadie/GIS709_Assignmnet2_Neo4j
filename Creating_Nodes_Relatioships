@@ -1,0 +1,11 @@
+CREATE
+(hatfield:station {name:"Hatfield", open: "05:08", close: "21:24", lat: "44.859", long: "28.238"}),
+(pretoria:station {name: "Pretoria", open: "05:17", close: "21:17", lat: "25.75817", long:"28.18947"}),
+(centurion:station {name: "Centurion", open: "05:25", close: "21:08", lat:"25.85162", long: "28.18973"}),
+(midrand:station {name: "Midrand", open: "05:33", close: "21:14", lat:"25.99648", long: "28.13758"}),
+(marlboro:station {name: "Marlboro", open: "05:10", close: "21:20", lat:"26.08392", long: "28.11163"}),
+(sandton:station {name: "Sandton", open: "05:06", close: "21:25", lat:"26.1078", long: "28.0575"}),
+(rosebank:station {name: "Rosebank", open: "05:18", close: "21:29", lat:"26.14525", long: "28.04387"}),
+(park:station {name: "Park", open: "05:14", close: "21:33", lat:"26.19553", long: "28.04155"}),
+(rhodesfield:station {name: "Rhodesfield", open: "05:17", close: "20:52", lat:"26.12833", long: "28.22523"}),
+(or:station {name: "OR Tambo", open: "05:15", close: "20:54", lat:"26.13293", long: "28.23157"})
