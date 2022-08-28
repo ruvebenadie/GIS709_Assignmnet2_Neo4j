@@ -63,25 +63,28 @@ MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Park' AND b.name = 'Hatfield'
-CREATE (a)-[:TO {cost: 93}]->(b);
+CREATE ((a)-[:TO {cost: 93}]->(b));
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Rosebank' AND b.name = 'Hatfield'
-CREATE (a)-[:TO {cost: 86}]->(b);
+CREATE ((a)-[:TO {cost: 86}]->(b)),
+((a)<-[:TO {cost: 86}]-(b));
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Sandton' AND b.name = 'Hatfield'
-CREATE (a)-[:TO {cost: 81}]->(b);
+CREATE ((a)-[:TO {cost: 81}]->(b)), 
+((a)<-[:TO {cost: 81}]-(b));
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Marlboro' AND b.name = 'Hatfield'
-CREATE (a)-[:TO {cost: 76}]->(b);
+CREATE ((a)-[:TO {cost: 76}]->(b)),
+((a)<-[:TO {cost: 76}]-(b));
 
 MATCH
   (a:station),
