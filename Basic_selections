@@ -1,0 +1,19 @@
+//SELECT ALL NODES
+MATCH(n)
+RETURN n
+
+//SELECT NAME AND OPEN AND CLOSING TIMES OF STATION
+MATCH (trading:station) 
+RETURN trading.name AS station , 
+trading.open AS opening ,  
+trading.close AS closing
+
+//SELECT HATFIELD STATION
+MATCH(station:station)
+WHERE station.name = "Hatfield"
+RETURN station
+
+//SELECT OPEN AND CLOSING OF PRETORIA STATION
+MATCH(station:station)
+WHERE station.name = "Pretoria"
+RETURN station.open as opening, station.close as closing
