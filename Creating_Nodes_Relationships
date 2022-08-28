@@ -1,60 +1,60 @@
 CREATE (hatfield:station)
-SET hatfield.location = Point({latitude: 44.859, longitude: 28.238 }),
+SET hatfield.location = Point({latitude: -25.74765, longitude: 28.238, crs: 'wgs-84' }),
 hatfield.name = "Hatfield",
 hatfield.open = "05:08",
 hatfield.close = "21:24"
 
 CREATE (pretoria:station)
-SET pretoria.location = Point({latitude: 25.75817, longitude: 28.18947}),
+SET pretoria.location = Point({latitude: -25.75817, longitude: 28.18947, crs: 'wgs-84'}),
 pretoria.name = "Pretoria",
 pretoria.open = "05:17",
 pretoria.close = "21:17";
 
 CREATE (centurion:station)
-SET centurion.location = Point({latitude: 25.85162, longitude: 28.18973}),
+SET centurion.location = Point({latitude: -25.85162, longitude: 28.18973, crs: 'wgs-84'}),
 centurion.name = "Centurion",
 centurion.open = "05:25",
 centurion.close = "21:08";
 
 CREATE (midrand:station)
-SET midrand.location = Point({latitude: 25.99648, longitude: 28.13758}),
+SET midrand.location = Point({latitude: -25.99648, longitude: 28.13758, crs: 'wgs-84'}),
 midrand.name =  "Midrand",
 midrand.open = "05:33",
 midrand.close = "21:14";
 
 CREATE (marlboro:station)
-SET marlboro.location = Point({latitude: 26.08392, longitude: 28.11163}),
+SET marlboro.location = Point({latitude: -26.08392, longitude: 28.11163, crs: 'wgs-84'}),
 marlboro.name = "Marlboro",
 marlboro.open = "05:10",
 marlboro.close = "21:20";
 
 CREATE (sandton:station)
-SET sandton.location = Point({latitude: 26.1078, longitude: 28.0575}),
+SET sandton.location = Point({latitude: -26.1078, longitude: 28.0575, crs: 'wgs-84'}),
 sandton.name = "Sandton",
 sandton.open = "05:06",
 sandton.close = "21:25";
 
 CREATE (rosebank:station)
-SET rosebank.location = Point({latitude: 26.14525, longitude: 28.04387}),
+SET rosebank.location = Point({latitude: -26.14525, longitude: 28.04387, crs: 'wgs-84'}),
 rosebank.name = "Rosebank",
 rosebank.open = "05:18",
 rosebank.close = "21:29";
 
 
 CREATE (park:station)
-SET park.location = Point({latitude: 26.19553, longitude: 28.04155}),
+SET park.location = Point({latitude: -26.19553, longitude: 28.04155, crs: 'wgs-84'}),
 park.name = "Park",
 park.open = "05:14",
 park.close = "21:33";
 
 CREATE (rhodesfield:station )
-SET rhodesfield.location = Point({latitude: 26.12833, longitude: 28.22523}),
+SET rhodesfield.location = Point({latitude: -26.12833, longitude: 28.22523, crs: 'wgs-84'}),
 rhodesfield.name = "Rhodesfield",
 rhodesfield.open = "05:17",
 rhodesfield.close = "20:52";
 
 CREATE (or:station)
-SET or.location = Point({latitude: 26.13293, longitude: 28.23157}),
+SET or.location = Point({latitude: -26.13293, longitude: 28.23157, crs: 'wgs-84'}),
 or.name =  "OR Tambo",
 or.open = "05:15",
 or.close = "20:54";
