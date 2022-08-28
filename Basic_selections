@@ -18,4 +18,5 @@ MATCH(station:station)
 WHERE station.name = "Pretoria"
 RETURN station.open as opening, station.close as closing
 
-//
+//SELECT ALL STATIONS GOING TO HATFIELD
+MATCH (n)<-[r:TO]-() WHERE n.name = 'Hatfield' RETURN (n)<-[r:TO]-()
