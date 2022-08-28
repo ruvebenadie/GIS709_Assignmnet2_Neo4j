@@ -63,118 +63,118 @@ MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Park' AND b.name = 'Hatfield'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 93}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Rosebank' AND b.name = 'Hatfield'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 86}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Sandton' AND b.name = 'Hatfield'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 81}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Marlboro' AND b.name = 'Hatfield'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 76}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Midrand' AND b.name = 'Hatfield'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 65}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Centurion' AND b.name = 'Hatfield'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 41}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Pretoria' AND b.name = 'Hatfield'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 32}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Hatfield' AND b.name = 'Park'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 93}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Pretoria' AND b.name = 'Park'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 86}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Centurion' AND b.name = 'Park'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 76}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Midrand' AND b.name = 'Park'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 52}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Marlboro' AND b.name = 'Park'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 42}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Sandton' AND b.name = 'Park'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 35}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Rosebank' AND b.name = 'Park'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 32}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'OR Tambo' AND b.name = 'Sandton'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 191}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Rhodesfield' AND b.name = 'Sandton'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 46}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Marlboro' AND b.name = 'Sandton'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 32}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Sandton' AND b.name = 'OR Tambo'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 191}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Marlboro' AND b.name = 'OR Tambo'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 191}]->(b);
 
 MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Rhodesfield' AND b.name = 'OR Tambo'
-CREATE (a)-[:TO]->(b);
+CREATE (a)-[:TO {cost: 191}]->(b);
