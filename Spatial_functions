@@ -8,3 +8,5 @@ WITH point({longitude:  28.184713912215578, latitude: -25.773796154325318}) AS l
 MATCH (s:station)
 WHERE point.withinBBox(s.location, lowerLeft, upperRight)
 RETURN count(s)
+
+//ROUTE PLANNING
