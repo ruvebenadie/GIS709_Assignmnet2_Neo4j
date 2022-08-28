@@ -10,3 +10,10 @@ WHERE point.withinBBox(s.location, lowerLeft, upperRight)
 RETURN count(s)
 
 //ROUTE PLANNING
+//SHOREST ROUTE BETWEEN OR TAMBO AND PARK STATION
+MATCH (c1:station { name: 'OR Tambo' })
+MATCH (c2:station { name: 'Park' })
+MATCH path = shortestPath((c1)-[*]-(c2))
+RETURN path
+
+
