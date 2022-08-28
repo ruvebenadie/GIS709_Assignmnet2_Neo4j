@@ -3,4 +3,8 @@ MATCH(s1:station {name: "Hatfield"})
 MATCH(s2:station {name: "Pretoria"})
 RETURN round(point.distance(s1.location,s2.location),3)/1000
 
-//
+//FINDING HOW MANY FEATURES IN BOUNDING BOX
+WITH point({longitude:  28.184713912215578, latitude: -25.773796154325318}) AS lowerLeft, point({longitude: 28.239987119633376, latitude: -25.745383601838313}) AS upperRight
+MATCH (s:station)
+WHERE point.withinBBox(s.location, lowerLeft, upperRight)
+RETURN count(s)
