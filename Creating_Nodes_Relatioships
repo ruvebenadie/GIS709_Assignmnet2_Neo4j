@@ -1,46 +1,180 @@
-CREATE
-(hatfield:station {name:"Hatfield", open: "05:08", close: "21:24", lat: "44.859", long: "28.238"}),
-(pretoria:station {name: "Pretoria", open: "05:17", close: "21:17", lat: "25.75817", long:"28.18947"}),
-(centurion:station {name: "Centurion", open: "05:25", close: "21:08", lat:"25.85162", long: "28.18973"}),
-(midrand:station {name: "Midrand", open: "05:33", close: "21:14", lat:"25.99648", long: "28.13758"}),
-(marlboro:station {name: "Marlboro", open: "05:10", close: "21:20", lat:"26.08392", long: "28.11163"}),
-(sandton:station {name: "Sandton", open: "05:06", close: "21:25", lat:"26.1078", long: "28.0575"}),
-(rosebank:station {name: "Rosebank", open: "05:18", close: "21:29", lat:"26.14525", long: "28.04387"}),
-(park:station {name: "Park", open: "05:14", close: "21:33", lat:"26.19553", long: "28.04155"}),
-(rhodesfield:station {name: "Rhodesfield", open: "05:17", close: "20:52", lat:"26.12833", long: "28.22523"}),
-(or:station {name: "OR Tambo", open: "05:15", close: "20:54", lat:"26.13293", long: "28.23157"}),
+CREATE (hatfield:station)
+SET hatfield.location = Point({latitude: 44.859, longitude: 28.238 }),
+hatfield.name = "Hatfield",
+hatfield.open = "05:08",
+hatfield.close = "21:24"
 
-(park)-[:TO]->(hatfield),
-(rosebank)-[:TO]->(hatfield),
-(sandton)-[:TO]->(hatfield),
-(marlboro)-[:TO]->(hatfield),
-(midrand)-[:TO]->(hatfield),
-(centurion)-[:TO]->(hatfield),
-(pretoria)-[:TO]->(hatfield),
+CREATE (pretoria:station)
+SET pretoria.location = Point({latitude: 25.75817, longitude: 28.18947}),
+pretoria.name = "Pretoria",
+pretoria.open = "05:17",
+pretoria.close = "21:17";
 
-(hatfield)-[:TO]->(park),
-(pretoria)-[:TO]->(park),
-(centurion)-[:TO]->(park),
-(midrand)-[:TO]->(park),
-(marlboro)-[:TO]->(park),
-(sandton)-[:TO]->(park),
-(rosebank)-[:TO]->(park),
+CREATE (centurion:station)
+SET centurion.location = Point({latitude: 25.85162, longitude: 28.18973}),
+centurion.name = "Centurion",
+centurion.open = "05:25",
+centurion.close = "21:08";
 
-(or)-[:TO]->(sandton),
-(rhodesfield)-[:TO]->(sandton),
-(marlboro)-[:TO]->(sandton),
+CREATE (midrand:station)
+SET midrand.location = Point({latitude: 25.99648, longitude: 28.13758}),
+midrand.name =  "Midrand",
+midrand.open = "05:33",
+midrand.close = "21:14";
 
-(sandton)-[:TO]->(or),
-(marlboro)-[:TO]->(or),
-(rhodesfield)-[:TO]->(or);
+CREATE (marlboro:station)
+SET marlboro.location = Point({latitude: 26.08392, longitude: 28.11163}),
+marlboro.name = "Marlboro",
+marlboro.open = "05:10",
+marlboro.close = "21:20";
 
+CREATE (sandton:station)
+SET sandton.location = Point({latitude: 26.1078, longitude: 28.0575}),
+sandton.name = "Sandton",
+sandton.open = "05:06",
+sandton.close = "21:25";
 
-
-
-
-
-
-
+CREATE (rosebank:station)
+SET rosebank.location = Point({latitude: 26.14525, longitude: 28.04387}),
+rosebank.name = "Rosebank",
+rosebank.open = "05:18",
+rosebank.close = "21:29";
 
 
+CREATE (park:station)
+SET park.location = Point({latitude: 26.19553, longitude: 28.04155}),
+park.name = "Park",
+park.open = "05:14",
+park.close = "21:33";
 
+CREATE (rhodesfield:station )
+SET rhodesfield.location = Point({latitude: 26.12833, longitude: 28.22523}),
+rhodesfield.name = "Rhodesfield",
+rhodesfield.open = "05:17",
+rhodesfield.close = "20:52";
+
+CREATE (or:station)
+SET or.location = Point({latitude: 26.13293, longitude: 28.23157}),
+or.name =  "OR Tambo",
+or.open = "05:15",
+or.close = "20:54";
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Park' AND b.name = 'Hatfield'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Rosebank' AND b.name = 'Hatfield'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Sandton' AND b.name = 'Hatfield'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Marlboro' AND b.name = 'Hatfield'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Midrand' AND b.name = 'Hatfield'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Centurion' AND b.name = 'Hatfield'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Pretoria' AND b.name = 'Hatfield'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Hatfield' AND b.name = 'Park'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Pretoria' AND b.name = 'Park'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Centurion' AND b.name = 'Park'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Midrand' AND b.name = 'Park'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Marlboro' AND b.name = 'Park'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Sandton' AND b.name = 'Park'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Rosebank' AND b.name = 'Park'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'OR Tambo' AND b.name = 'Sandton'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Rhodesfield' AND b.name = 'Sandton'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Marlboro' AND b.name = 'Sandton'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Sandton' AND b.name = 'OR Tambo'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Marlboro' AND b.name = 'OR Tambo'
+CREATE (a)-[:TO]->(b);
+
+MATCH
+  (a:station),
+  (b:station)
+WHERE a.name = 'Rhodesfield' AND b.name = 'OR Tambo'
+CREATE (a)-[:TO]->(b);
