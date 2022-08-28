@@ -1,0 +1,6 @@
+//DISTANCE BETWEEN HATFIELD AND PRETORIA STATION
+MATCH(s1:station {name: "Hatfield"})
+MATCH(s2:station {name: "Pretoria"})
+RETURN round(point.distance(s1.location,s2.location),3)/1000
+
+//
