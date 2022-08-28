@@ -132,7 +132,7 @@ MATCH
   (a:station),
   (b:station)
 WHERE a.name = 'Midrand' AND b.name = 'Park'
-CREATE ((a)-[:TO {cost: 52}]->(b))
+CREATE ((a)-[:TO {cost: 52}]->(b)),
 ((a)<-[:TO {cost: 52}]-(b));
 
 MATCH
