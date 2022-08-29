@@ -16,4 +16,15 @@ MATCH (c2:station { name: 'Park' })
 MATCH path = shortestPath((c1)-[*]-(c2))
 RETURN path
 
+//DIJKSTRA ALGORITHM 
+MATCH (c1:station { name: 'Hatfield' })
+MATCH (c2:station { name: 'OR Tambo' })
+CALL apoc.algo.dijkstra(c1, c2, 'TO', 'cost') YIELD path, weight
+RETURN path, weight
+
+//TOP 3 ROUTES FROM HATFIELD TO SANDTON
+MATCH (start:station {name: 'Hatfield'}), (end:station {name: 'Sandton'})
+CALL apoc.algo.dijkstra(start, end, 'TO','cost' , 5, 3) YIELD path, weight
+RETURN path, weight
+
 
