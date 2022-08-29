@@ -27,4 +27,9 @@ MATCH (start:station {name: 'Hatfield'}), (end:station {name: 'Sandton'})
 CALL apoc.algo.dijkstra(start, end, 'TO','cost' , 5, 3) YIELD path, weight
 RETURN path, weight
 
-
+//TO OR TAMBO VIA HATFIELD
+MATCH (start:station {name:'Hatfield'}), (end:station {name: 'OR Tambo'}), (via:station {name:'Sandton'})
+CALL apoc.algo.dijkstra(start, via, 'TO', 'cost') YIELD path, weight
+WITH end, via, path AS p1, weight as w1
+CALL apoc.algo.dijkstra(via, end, 'TO', 'cost') YIELD path, weight
+return p1, path AS p2, weight+w1
