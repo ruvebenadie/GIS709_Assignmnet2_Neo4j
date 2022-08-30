@@ -1,0 +1,88 @@
+//---------------------------------------------------
+//BASIC SELECTIONS
+//---------------------------------------------------
+
+//select by name
+use('assignment_2');
+db.res.find({name: "Dj Reynolds Pub And Restaurant"})
+
+use('assignment_2');
+db.neighbourhood.find({name:"Woodhaven"})
+
+
+//Matches values that are greater than a specified value.
+use('assignment_2');
+db.sample.find({latdec:{$gt:10}})
+
+//like search
+use('assignment_2');
+db.res.find({name:/.*italian*/})
+
+//Logical condition searches
+use("assignment_2")
+db.sample.find({ $or:[{"latdec": 9.3560572}, {"londec":5}]})
+
+use("assignment_2")
+db.sample.find({ $and:[{"latdec": 9.3560572}, {"londec":5}]})
+
+//-------------------------------------------------------
+//Geospatial queries
+//-------------------------------------------------------
+//Within Bounding box
+//south is negative
+//west is negative
+//(bottom left, top right)
+
+use('assignment_2');
+
+db.res.find( {
+   location: { $geoWithin: { $box:  [  [ -73.9, 40.5 ], [ -73.7, 40.9] ] } }
+} )
+
+
+//Intersection
+//finding all restuarants within a specific neighbourhood (neighbourhood searched above)
+use("assignment_2");
+var specific_neighbourhood= db.neighbourhood.findOne({geometry: {$geoIntersects:{$geometry:{type:"Point", coordinates: [-73.84914837, 40.6982827]}}}})
+db.res.find({location:{$geoWithin: {$geometry: specific_neighbourhood.geometry}}})
+
+//Based on distance
+
+use('assignment_2')
+db.res.find({name: "Wendy'S"}) //resturant on which distance selections are made
+
+//$centerSphere's second argument accepts the radius in radians, so you must divide it by the radius of the earth in km
+db.res.find({ location:
+   { $geoWithin:
+      { $centerSphere: [ [ -73.961704, 40.662942 ], 5 / 6371 ] } } })
+
+
+//100 meters from Wendy's
+use("assignment_2");
+db.res.find({ location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -73.961704, 40.662942] }, $maxDistance: 100 } } })
+
+use("assignment_2");
+db.res.find(
+   {
+     location:
+       { $near :
+          {
+            $geometry: { type: "Point",  coordinates: [ -73.961704, 40.662942 ] },
+            $minDistance: 100,
+            $maxDistance: 5000
+          }
+       }
+   }
+)
+
+///The following operation uses the $geoNear aggregation operation to return documents that match the query, sorted in order of nearest to farthest to the specified GeoJSON point:
+use("assignment_2");
+db.res.aggregate( [
+   {
+      $geoNear: {
+         near: { type: "Point", coordinates: [ -73.961704, 40.662942] },
+         spherical: true,
+         distanceField: "calcDistance"
+      }
+   }
+] )
