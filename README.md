@@ -6,4 +6,5 @@ Youtube video: (https://youtu.be/f5Kkr-Tmegk)
 neighborhoods.json and restaurants.json is the data used for the MongoDB tutorial 
 index.txt is the JavaScript library file
 index.html is the MongoDB script ran in the console log
+MongoDB is the code used in the tutorial for MongoDB
 
