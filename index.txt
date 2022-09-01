@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+	<script>
+		var point = turf.point([-75.343, 39.984])
+		var distance = 50
+		var bearing = 90
+		var options = { units: "miles" }
+
+		var destination = turf.destination(point, distance, bearing, options)
+		console.log(destination)
+
+		var polygon = turf.polygon([[[ -73.9, 40.5 ], [ -73.9, 40.9], [ -73.7, 40.9 ], [ -73.7, 40.5 ], [ -73.9, 40.5 ] ]]);
+		var area=turf.area(polygon)
+		console.log(area) //area of bounding box returned in square meters
+
+		var point1 = turf.point([-73.961704, 40.662942]) //Wendy;
+		var point2 = turf.point([-73.856077,40.848447]); // Morris
+		var bearing = turf.bearing(point1, point2);
+		console.log(bearing) 
+		//bearing between wendy and moris returned in decimal degrees
+
+
+		var point3 = turf.point([-73.9612859,40.6630911]); //Popeyes
+		var options = {units: 'meters'};
+		var distance=turf.distance(point1, point3, options)
+		console.log(distance)
+		//distance between wendy and popeyes returned in meters
+
+	</script>
+</html>
